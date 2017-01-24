@@ -1,0 +1,11 @@
+exportPattern("^[[:alpha:]]+")
+importFrom("graphics", "barplot")
+importFrom("stats", "runif", "sd")
+importFrom("pracma", "squareform")
+importFrom("proxy", "dist")
+importFrom("cluster", "silhouette")
+import("doParallel")
+import("foreach")
+import("ggplot2")
+
+
