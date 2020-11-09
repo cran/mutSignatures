@@ -1,4 +1,4 @@
-## ----setup, include=FALSE------------------------------------------------
+## ----setup, include=FALSE-----------------------------------------------------
 set.seed(1234567)
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, fig.align = "center", results = "asis")
 
@@ -19,14 +19,25 @@ head.muty <- c("T[C>A]G", "T[C>T]A", "G[C>T]A", "C[C>T]T", "T[C>G]T", "T[C>G]C",
                "T[C>G]A", "T[C>T]T", "T[C>G]T", "T[C>T]G", "T[C>A]G", "T[C>T]A", 
                "A[T>C]T", "A[T>G]G", "C[T>C]T", "T[C>T]A", "T[C>T]A", "G[T>A]C")
 
-## ----eval = FALSE--------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 #  install.packages("mutSignatures")
 
-## ----eval = FALSE--------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 #  devtools::install_github("dami82/mutSignatures", force = TRUE,
 #                           build_opts = NULL, build_vignettes = TRUE)
 
-## ----eval=FALSE----------------------------------------------------------
+## ----echo=TRUE, eval=FALSE, include=TRUE--------------------------------------
+#  # Get BiocManager
+#  if (!"BiocManager" %in% rownames(utils::installed.packages()))
+#    install.packages("BiocManager")
+#  
+#  # Get Bioc libs
+#  BiocManager::install(pkgs = c("IRanges", "GenomicRanges", "BSgenome", "GenomeInfoDb"))
+
+## ----echo=TRUE, eval=FALSE, include=TRUE--------------------------------------
+#  BiocManager::install(pkgs = "BSgenome.Hsapiens.UCSC.hg19")
+
+## ----eval=FALSE---------------------------------------------------------------
 #  # Required libs
 #  library(dplyr)
 #  library(reshape2)
@@ -44,7 +55,7 @@ head.muty <- c("T[C>A]G", "T[C>T]A", "G[C>T]A", "C[C>T]T", "T[C>G]T", "T[C>G]C",
 #  # load data
 #  data("mutSigData")
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 # Import data (VCF-like format)
 x <- mutSigData$inputC
 
@@ -54,7 +65,7 @@ x <- filterSNV(dataSet = x,  seq_colNames = c("REF", "ALT"))
 # Visualize head
 head(x) %>% kable() %>% kable_styling(bootstrap_options = "striped")
 
-## ----eval=FALSE----------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  # Attach context
 #  x <- attachContext(mutData = x,
 #                     chr_colName = "CHROM",
@@ -63,10 +74,10 @@ head(x) %>% kable() %>% kable_styling(bootstrap_options = "striped")
 #                     nucl_contextN = 3,
 #                     BSGenomeDb = hg19)
 
-## ----include=FALSE, eval=TRUE, echo=FALSE--------------------------------
+## ----include=FALSE, eval=TRUE, echo=FALSE-------------------------------------
 x <- mutSignatures::mutSigData$inputC.ctx
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 # Visualize head
 head(x) %>% kable() %>% kable_styling(bootstrap_options = "striped")
 # Remove mismatches
@@ -75,53 +86,71 @@ x <- removeMismatchMut(mutData = x,                  # input data.frame
                        context_colName = "context",  # column name for context
                        refMut_format = "N")    
 
-## ----eval=FALSE----------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  # Compute mutType
 #  x <- attachMutType(mutData = x,                      # as above
 #                     ref_colName = "REF",              # column name for ref base
 #                     var_colName = "ALT",              # column name for mut base
 #                     context_colName = "context")
 
-## ----include=FALSE, eval=TRUE, echo=FALSE--------------------------------
+## ----include=FALSE, eval=TRUE, echo=FALSE-------------------------------------
 x <- x[1:18, ]
 x$mutType <- head.muty
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 # Visualize head
 head(x) %>% kable() %>% kable_styling(bootstrap_options = "striped")
 
-## ----eval=FALSE----------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  # Count
 #  blca.counts <- countMutTypes(mutTable = x,
 #                               mutType_colName = "mutType",
 #                               sample_colName = "SAMPLEID")
 
-## ----include=FALSE, eval=TRUE, echo=FALSE--------------------------------
+## ----include=FALSE, eval=TRUE, echo=FALSE-------------------------------------
 # Count
 blca.counts <- mutSignatures::as.mutation.counts(mutSigData$blcaMUTS)
 
-## ----results='markup'----------------------------------------------------
+## ----results='markup'---------------------------------------------------------
 # Mutation Counts
 print(blca.counts)
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 # how many signatures should we extract? 
 num.sign <- 4
 
 # Define parameters for the non-negative matrix factorization procedure.
 # you should parallelize if possible
 blca.params <- 
-  setMutClusterParams(
+  mutSignatures::setMutClusterParams( 
     num_processesToExtract = num.sign,    # num signatures to extract
-    num_totIterations = 25,               # bootstrapping: usually 500-1000
-    num_parallelCores = 1)                # total num of cores to use (parallelization)
+    num_totIterations = 20,               # bootstrapping: usually 500-1000
+    num_parallelCores = 4)                # total num of cores to use (parallelization)
 
-# Extract new signatures - may take a while
-blca.analysis <- 
-  decipherMutationalProcesses(input = blca.counts,
-                              params = blca.params)
+## ----eval=FALSE, include=TRUE, echo=TRUE--------------------------------------
+#  # Extract new signatures - may take a while
+#  blca.analysis <-
+#    decipherMutationalProcesses(input = blca.counts,
+#                                params = blca.params)
 
-## ------------------------------------------------------------------------
+## ----eval=TRUE, include=TRUE, echo=FALSE--------------------------------------
+blca.analysis <- list(Results = mutSigData$inputS$Results)
+tmp <- mutSigData$inputS$silhouetteTMP
+
+xrange <- c(min(tmp[,3]), max(tmp[,3]))
+xrange[1] <- ifelse(xrange[1] > 0, 0, (-1.15) * abs(xrange[1]))
+xrange[2] <- 1.15
+graphics::barplot(tmp[nrow(tmp):1, 3], 
+                  col = base::as.factor(tmp[nrow(tmp):1,1]),
+                  xlim = xrange,
+                  horiz = TRUE, xlab = "Silhouette Value", 
+                  ylab = "", 
+                  main = "Silhouette Plot", 
+                  border = base::as.factor(tmp[nrow(tmp):1,1]))
+graphics::abline(v=0)
+graphics::title(ylab="Iter. Results (by Group)", line=1, cex.lab=1, font = 2)
+
+## ----fig.align='center', fig.width=12, fig.height=3---------------------------
 # Retrieve signatures (results)
 blca.sig <- blca.analysis$Results$signatures
 
@@ -130,11 +159,13 @@ blca.exp <- blca.analysis$Results$exposures
 
 # Plot signature 1 (standard barplot, you can pass extra args such as ylim)
 msigPlot(blca.sig, signature = 1, ylim = c(0, 0.10))
+
+## -----------------------------------------------------------------------------
 # Plot exposures (ggplot2 object, you can customize as any other ggplot2 object)
 msigPlot(blca.exp, main = "BLCA samples") + 
   scale_fill_manual(values = c("#1f78b4", "#cab2d6", "#ff7f00", "#a6cee3"))
 # Export Signatures as data.frame
-xprt <- mutSignatures::as.data.frame(blca.sig) 
+xprt <- coerceObj(x = blca.sig, to = "data.frame") 
 head(xprt) %>% kable() %>% kable_styling(bootstrap_options = "striped")
 # Get signatures from data (imported as data.frame) 
 # and then convert it to mutSignatures object
@@ -152,7 +183,7 @@ msig1 <- matchSignatures(mutSign = blca.sig, reference = cosmixSigs,
 msig2 <- matchSignatures(mutSign = blca.sig, reference = blcaKnwnSigs, 
                          threshold = 0.45, plot = TRUE)
 
-## ----fig.height=5, fig.width=12, fig.align='center'----------------------
+## ----fig.height=5, fig.width=12, fig.align='center'---------------------------
 # Visualize match
 # signature 1 is similar to COSMIC ; 
 # signatures 2 and 3 are similar to COSMIC
@@ -163,7 +194,7 @@ hm2 <- msig2$plot + ggtitle("Match to known BLCA signs.")
 # Show
 grid.arrange(hm1, hm2, ncol = 2)
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 # Retrieve a mutation.counts data.frame
 x <- mutSigData$blcaMUTS
 
@@ -172,11 +203,11 @@ x[1:10, 1:5] %>% kable() %>% kable_styling(bootstrap_options = "striped")
 # Convert it
 xx <- as.mutation.counts(x)
 
-## ----results='markup'----------------------------------------------------
+## ----results='markup'---------------------------------------------------------
 # Print to screen
 print(xx)
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 # Obtain 4 COSMIC signatures
 cosmx <- mutSigData$blcaSIGS %>% dplyr::select(starts_with("COSMIC"))
 cosmx <- as.mutation.signatures(cosmx)
@@ -185,13 +216,13 @@ cosmx <- as.mutation.signatures(cosmx)
 blcmx <- mutSigData$blcaSIGS %>% dplyr::select(starts_with("BLCA"))
 blcmx <- as.mutation.signatures(blcmx)
 
-## ----results='markup'----------------------------------------------------
+## ----results='markup'---------------------------------------------------------
 # Visualize cosmx
 print(cosmx)
 # Visualize cosmx
 print(blcmx)
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 # Run analysis
 blca.expo1 <- resolveMutSignatures(mutCountData = xx, 
                                    signFreqData = cosmx)
@@ -199,7 +230,7 @@ blca.expo1 <- resolveMutSignatures(mutCountData = xx,
 blca.expo2 <- resolveMutSignatures(mutCountData = xx, 
                                    signFreqData = blcmx)
 
-## ----fig.width=12, fig.height=5------------------------------------------
+## ----fig.width=12, fig.height=5-----------------------------------------------
 # Retrieve exposures (results)
 blca.exp.1x <- blca.expo1$results$count.result
 blca.exp.2x <- blca.expo2$results$count.result
@@ -221,11 +252,6 @@ xprt <- as.data.frame(blca.exp.1x, transpose = TRUE)
 head(xprt) %>% round() %>% kable() %>% 
   kable_styling(bootstrap_options = "striped")
 
-## ----include=FALSE-------------------------------------------------------
-my.t1 <- Sys.time()
-tdif <- difftime(time1 = my.t1, time2 = my.t0, units = "mins") %>% 
-  as.numeric() %>% round(digits = 3)
-
-## ----results='markup'----------------------------------------------------
+## ----results='markup'---------------------------------------------------------
 sessionInfo()
 

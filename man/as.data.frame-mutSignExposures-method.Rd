@@ -5,8 +5,7 @@
 \alias{as.data.frame,mutSignExposures-method}
 \title{Convert and/or transpose a mutSignExposures object to data.frame.}
 \usage{
-\S4method{as.data.frame}{mutSignExposures}(x, row.names = NULL,
-  optional = NULL, ...)
+\S4method{as.data.frame}{mutSignExposures}(x, row.names = NULL, optional = NULL, ...)
 }
 \arguments{
 \item{x}{a mutSignExposures object}

@@ -4,13 +4,25 @@
 \alias{setMutClusterParams}
 \title{Set Parameters for Extracting Mutational Signatures.}
 \usage{
-setMutClusterParams(num_processesToExtract = 2, num_totIterations = 10,
-  num_parallelCores = 1, thresh_removeWeakMutTypes = 0.01,
-  thresh_removeLastPercent = 0.07, distanceFunction = "cosine",
-  num_totReplicates = 100, eps = 2.2204e-16, stopconv = 20000,
-  niter = 1e+06, guided = TRUE, debug = FALSE, approach = "freq",
-  stopRule = "DF", algorithm = "brunet", logIterations = "lite",
-  seed = 12345)
+setMutClusterParams(
+  num_processesToExtract = 2,
+  num_totIterations = 10,
+  num_parallelCores = 1,
+  thresh_removeWeakMutTypes = 0.01,
+  thresh_removeLastPercent = 0.07,
+  distanceFunction = "cosine",
+  num_totReplicates = 100,
+  eps = 2.2204e-16,
+  stopconv = 20000,
+  niter = 1e+06,
+  guided = TRUE,
+  debug = FALSE,
+  approach = "freq",
+  stopRule = "DF",
+  algorithm = "brunet",
+  logIterations = "lite",
+  seed = 12345
+)
 }
 \arguments{
 \item{num_processesToExtract}{integer, number of mutational signatures to extract}
@@ -75,8 +87,9 @@ B
 \references{
 More information and examples about mutational signature analysis can be found here:
 \enumerate{
-  \item \bold{Official website}: \url{http://www.mutsignatures.org}
+  \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+  \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
   \item WTSI framework: \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3588146/}
  }

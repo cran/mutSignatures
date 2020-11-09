@@ -11,20 +11,20 @@ signatures oper-ating in cancer. The input is a numeric matrix of DNA mutation c
 in a panel of cancer samples. The framework performs Non-negative Matrix Factorization to extract 
 mutational signatures explaining the observed set of DNA mutations. The framework relies on 
 parallelization and is optimized for use on multi-core systems. This framework was described by Fantini D
-et al (2020) \url{https://www.biorxiv.org/content/10.1101/2020.03.15.992826v1} and is built upon a custom R-based 
+et al (2020) \url{https://www.nature.com/articles/s41598-020-75062-0/} and is built upon a custom R-based 
 implementation of the original MATLAB WTSI frame-work by Alexandrov LB et al (2013) 
 \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3588146/}. The mutSignatures framework has been described in 
-peer-reviewed publications, including Fantini D et al (2018) \url{https://www.nature.com/articles/s41388-017-0099-6} and 
-Fantini D et al (2019) \url{https://www.sciencedirect.com/science/article/abs/pii/S1078143918303818}. The framework includes three modules 
+peer-reviewed publications, including Fantini D et al (2018) \url{https://www.nature.com/articles/s41388-017-0099-6/} and 
+Fantini D et al (2019) \url{https://www.sciencedirect.com/science/article/abs/pii/S1078143918303818/}. The framework includes three modules 
 that support raw data import and pre-processing, mutation counts deconvolution, 
 and data visualization.
 }
 \references{
 More info, examples and vignettes:
 \enumerate{
-  \item{\strong{Official website}: \url{http://www.mutSignatures.org} }
+  \item{\strong{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/} }
   \item{\strong{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/} }
-  \item{\strong{Our 2020 biorxiv describing the latest version of mutSignatures} \url{https://www.biorxiv.org/content/10.1101/2020.03.15.992826v1} }
-  \item{\strong{Oncogene paper}: Mutational Signatures operative in bladder cancer: \url{https://www.nature.com/articles/s41388-017-0099-6} }
+  \item{\strong{2020 Sci Rep paper} describing the latest version of mutSignatures: \url{https://www.nature.com/articles/s41598-020-75062-0/} }
+  \item{\strong{Oncogene paper}: Mutational Signatures operative in bladder cancer: \url{https://www.nature.com/articles/s41388-017-0099-6/} }
  }
 }

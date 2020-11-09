@@ -4,8 +4,14 @@
 \alias{addWeak}
 \title{Add Weak Mutation TYpes}
 \usage{
-addWeak(mutationTypesToAddSet, processes_I, processesStd_I, Wall_I,
-  genomeErrors_I, genomesReconstructed_I)
+addWeak(
+  mutationTypesToAddSet,
+  processes_I,
+  processesStd_I,
+  Wall_I,
+  genomeErrors_I,
+  genomesReconstructed_I
+)
 }
 \arguments{
 \item{mutationTypesToAddSet}{Set of mutations to restore}
@@ -33,8 +39,9 @@ and in the WTSI MATLAB framework. This is an internal function.
 \references{
 More information and examples about mutational signature analysis can be found here:
 \enumerate{
-  \item \bold{Official website}: \url{http://www.mutsignatures.org}
+  \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+  \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
   \item WTSI framework: \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3588146/}
  }

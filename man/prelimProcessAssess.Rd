@@ -4,8 +4,13 @@
 \alias{prelimProcessAssess}
 \title{Run a Preliminary Process Assess analysis.}
 \usage{
-prelimProcessAssess(input, maxProcess = 6, approach = "counts",
-  plot = TRUE, verbose = TRUE)
+prelimProcessAssess(
+  input,
+  maxProcess = 6,
+  approach = "counts",
+  plot = TRUE,
+  verbose = TRUE
+)
 }
 \arguments{
 \item{input}{a mutationCounts-class object}
@@ -31,8 +36,9 @@ This function is part of the user-interface set of tools included in mutSignatur
 \references{
 More information and examples about mutational signature analysis can be found here:
 \enumerate{
-  \item \bold{Official website}: \url{http://www.mutsignatures.org}
+  \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+  \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
  }
 }

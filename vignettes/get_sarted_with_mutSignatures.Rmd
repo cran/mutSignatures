@@ -43,9 +43,11 @@ Cancer cells accumulate DNA mutations as result of DNA damage and DNA repair pro
 
 - The framework relies on parallelization (optional) and is optimized for use on multi-core systems. 
 
-- The *mutSignatures* framework was developed in the Meeks Lab at Northwestern University (Chicago, IL), was described by [Fantini D et al, 2020](https://www.biorxiv.org/content/10.1101/2020.03.15.992826v1), and was built upon a custom R-based implementation of the original MATLAB WTSI framework by [Alexandrov LB et al, 2013](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3588146/).   
+- The *mutSignatures* framework was developed in the Meeks Lab at Northwestern University (Chicago, IL), and was described in a *Scientific Reports* paper [Fantini D et al, 2020](https://www.nature.com/articles/s41598-020-75062-0/)
 
-- The *mutSignatures* framework has been used for analyses described in peer-reviewed publications, including [Fantini D et al, 2018](https://www.nature.com/articles/s41388-017-0099-6) and [Fantini D et al, 2019](https://www.ncbi.nlm.nih.gov/pubmed/30446446). 
+-  The software is based on a custom R-based implementation of the MATLAB WTSI framework by [Alexandrov LB et al, 2013](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3588146/), and includes a wide range of tools for expanded functionality.   
+
+- The *mutSignatures* framework has been used for analyses described in peer-reviewed publications, including [Fantini D et al, 2018](https://www.nature.com/articles/s41388-017-0099-6/) and [Fantini D et al, 2019](https://pubmed.ncbi.nlm.nih.gov/30446446/). 
 
 
 ## Tutorials and How-tos
@@ -60,9 +62,10 @@ More vignettes discussing how to extract and analyze mutational signatures from 
 
 - More tutorials: [mutsignatures official website](https://www.data-pulse.com/dev_site/mutsignatures/)
 
+
 ## Installation
 
-The package is available from CRAN. The *official* version of `mutSignatures` (version 2.1) can be installed from any CRAN mirror.
+The package is available from CRAN. The *official* version of `mutSignatures` (version 2.1.1) can be installed from any CRAN mirror.
 
 ```{r eval = FALSE}
 install.packages("mutSignatures")
@@ -73,6 +76,25 @@ The latest (most recently updated, *beta*) version of the package is available o
 ```{r eval = FALSE}
 devtools::install_github("dami82/mutSignatures", force = TRUE, 
                          build_opts = NULL, build_vignettes = TRUE)
+```
+
+### Note on software Dependencies
+
+One of the pre-processing steps in the mutSignatures pipeline relies on a list of Bioconductor (<https://www.bioconductor.org/>) libraries. These libraries are optional, since they are only required for the *attachContext()* step (these libs are not automatically downloaded when installing the package). The bioconductor libraries are: *i)* IRanges; *ii)* GenomicRanges; *iii)* BSgenome; *iv)* GenomeInfoDb. You can install them as shown below. 
+
+```{r echo=TRUE, eval=FALSE, include=TRUE}
+# Get BiocManager
+if (!"BiocManager" %in% rownames(utils::installed.packages()))
+  install.packages("BiocManager")
+
+# Get Bioc libs
+BiocManager::install(pkgs = c("IRanges", "GenomicRanges", "BSgenome", "GenomeInfoDb"))
+```
+
+To complete the *attachContext()* step, a BSgenome package including full genome sequences of the organism of interest has to be installed as well. For example, human *hg19* genome sequences can be installed as shown below. 
+
+```{r echo=TRUE, eval=FALSE, include=TRUE}
+BiocManager::install(pkgs = "BSgenome.Hsapiens.UCSC.hg19")
 ```
 
 ## Pipeline
@@ -138,6 +160,7 @@ x <- filterSNV(dataSet = x,  seq_colNames = c("REF", "ALT"))
 # Visualize head
 head(x) %>% kable() %>% kable_styling(bootstrap_options = "striped")
 ```
+
 ```{r eval=FALSE}
 # Attach context
 x <- attachContext(mutData = x,
@@ -147,6 +170,7 @@ x <- attachContext(mutData = x,
                    nucl_contextN = 3,
                    BSGenomeDb = hg19)
 ```
+
 ```{r include=FALSE, eval=TRUE, echo=FALSE}
 x <- mutSignatures::mutSigData$inputC.ctx
 ```
@@ -207,23 +231,44 @@ num.sign <- 4
 # Define parameters for the non-negative matrix factorization procedure.
 # you should parallelize if possible
 blca.params <- 
-  setMutClusterParams(
+  mutSignatures::setMutClusterParams( 
     num_processesToExtract = num.sign,    # num signatures to extract
-    num_totIterations = 25,               # bootstrapping: usually 500-1000
-    num_parallelCores = 1)                # total num of cores to use (parallelization)
+    num_totIterations = 20,               # bootstrapping: usually 500-1000
+    num_parallelCores = 4)                # total num of cores to use (parallelization)
+```
 
+```{r eval=FALSE, include=TRUE, echo=TRUE}
 # Extract new signatures - may take a while
 blca.analysis <- 
   decipherMutationalProcesses(input = blca.counts,
                               params = blca.params)
 ```
 
+```{r eval=TRUE, include=TRUE, echo=FALSE}
+blca.analysis <- list(Results = mutSigData$inputS$Results)
+tmp <- mutSigData$inputS$silhouetteTMP
+
+xrange <- c(min(tmp[,3]), max(tmp[,3]))
+xrange[1] <- ifelse(xrange[1] > 0, 0, (-1.15) * abs(xrange[1]))
+xrange[2] <- 1.15
+graphics::barplot(tmp[nrow(tmp):1, 3], 
+                  col = base::as.factor(tmp[nrow(tmp):1,1]),
+                  xlim = xrange,
+                  horiz = TRUE, xlab = "Silhouette Value", 
+                  ylab = "", 
+                  main = "Silhouette Plot", 
+                  border = base::as.factor(tmp[nrow(tmp):1,1]))
+graphics::abline(v=0)
+graphics::title(ylab="Iter. Results (by Group)", line=1, cex.lab=1, font = 2)
+```
 
 ### Downstream analyses and visualization
 
-Profiles of *de-novo* extracted mutational signatures can be visualized (by barplots). Also it is possible to plot the estimated exposures of each sample to the identified mutational patterns. It is also possible to compare *de-novo* extracted signtures with known signatures (such as signatures from previous analyses, or COSMIC signatures). To cast `mutSignature` objects as `data.frames`, you can use the `mutSignatures::as.data.frame()` method.
+Profiles of *de-novo* extracted mutational signatures can be visualized (by barplots). Also it is possible to plot the estimated exposures of each sample to the identified mutational patterns. It is also possible to compare *de-novo* extracted signatures with known signatures (such as signatures from previous analyses, or COSMIC signatures). To cast `mutSignature` objects as `data.frames`, you can use the `mutSignatures::as.data.frame()` method.
 
-```{r}
+**Note**: you can use the `mutSignatures::getCosmicSignatures()` function to download a copy of the COSMIC signatures.
+
+```{r fig.align='center', fig.width=12, fig.height=3}
 # Retrieve signatures (results)
 blca.sig <- blca.analysis$Results$signatures
 
@@ -232,11 +277,13 @@ blca.exp <- blca.analysis$Results$exposures
 
 # Plot signature 1 (standard barplot, you can pass extra args such as ylim)
 msigPlot(blca.sig, signature = 1, ylim = c(0, 0.10))
+```
+```{r}
 # Plot exposures (ggplot2 object, you can customize as any other ggplot2 object)
 msigPlot(blca.exp, main = "BLCA samples") + 
   scale_fill_manual(values = c("#1f78b4", "#cab2d6", "#ff7f00", "#a6cee3"))
 # Export Signatures as data.frame
-xprt <- mutSignatures::as.data.frame(blca.sig) 
+xprt <- coerceObj(x = blca.sig, to = "data.frame") 
 head(xprt) %>% kable() %>% kable_styling(bootstrap_options = "striped")
 # Get signatures from data (imported as data.frame) 
 # and then convert it to mutSignatures object
@@ -353,32 +400,19 @@ head(xprt) %>% round() %>% kable() %>%
 
 More info and other examples can be found at the following URLs:
 
-- **Official website:** [http://www.mutSignatures.org/](http://www.mutSignatures.org/)
+- **Our Scientific Reports** paper describing the latest version of the software: *MutSignatures: An R Package for Extraction and Analysis of Cancer Mutational Signatures*, [https://www.nature.com/articles/s41598-020-75062-0/](https://www.nature.com/articles/s41598-020-75062-0/). Please, cite this paper if you use *mutSignatures* in your work! Thanks.
 
-- **Our biorxiv** describing the latest version of the software: *MutSignatures: An R Package for Extraction and Analysis of Cancer Mutational Signatures*, [https://www.biorxiv.org/content/10.1101/2020.03.15.992826v1](https://www.biorxiv.org/content/10.1101/2020.03.15.992826v1)
-
-- **Oncogene paper:** Mutational Signatures operative in bladder cancer, [https://www.nature.com/articles/s41388-017-0099-6](https://www.nature.com/articles/s41388-017-0099-6)
+- **Oncogene paper:** Mutational Signatures operative in bladder cancer, [https://www.nature.com/articles/s41388-017-0099-6/](https://www.nature.com/articles/s41388-017-0099-6/)
 
 - **More tutorials and vignettes about the mutSignatures R library:** [https://www.data-pulse.com/dev_site/mutsignatures/](https://www.data-pulse.com/dev_site/mutsignatures/)
 
 
 ## SessionInfo
 
-**Execution time**
-
-```{r include=FALSE}
-my.t1 <- Sys.time()
-tdif <- difftime(time1 = my.t1, time2 = my.t0, units = "mins") %>% 
-  as.numeric() %>% round(digits = 3)
-```
-
-Time difference of ```r tdif``` mins.
-
-**Environment**
 
 ```{r results='markup'}
 sessionInfo()
 ```
 
-Thanks for your interest in our software. If you run into any issue, bug, or you have a question about `mutSignatures`, feel free to email <damiano.fantini@gmail.com>. This project is mainly supported by *DF* in his free time. **C-2020** *(July-02, 2020)*.
+Thanks for your interest in our software. If you run into any issue, bug, or you have a question about `mutSignatures`, feel free to email <damiano.fantini@gmail.com>. At this time, *mutSignatures* is mainly supported by *DF* in his free time (so, please, be patient upon your inquires). **C-2020** *(November-01, 2020)*.
 

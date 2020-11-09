@@ -33,8 +33,9 @@
 #' @references 
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
-#'   \item \bold{Official website}: \url{http://www.mutsignatures.org}
+#'   \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
 #'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
 #'   \item WTSI framework: \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3588146/}
 #'  }
@@ -115,8 +116,9 @@ addWeak <- function (mutationTypesToAddSet,
 #' @references 
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
-#'   \item \bold{Official website}: \url{http://www.mutsignatures.org}
+#'   \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
 #'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
 #'   \item WTSI framework: \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3588146/}
 #'  }
@@ -174,8 +176,9 @@ bootstrapCancerGenomes <- function (genomes, seed = NULL)
 #' @references 
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
-#'   \item \bold{Official website}: \url{http://www.mutsignatures.org}
+#'   \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
 #'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
 #'   \item WTSI framework: \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3588146/}
 #'  }
@@ -407,9 +410,10 @@ evaluateStability <- function (wall,
 #' @references 
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
-#'   \item \bold{Official website}: \url{http://www.mutsignatures.org}
+#'   \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
-#'   \item Mutational signatures operative in bladder cancer (\bold{Oncogene paper}): \url{https://www.nature.com/articles/s41388-017-0099-6}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
+#'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
 #'   \item WTSI framework: \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3588146/}
 #'  }
 #' 
@@ -475,8 +479,9 @@ filterOutIterations <- function (wall,
 #' @references 
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
-#'   \item \bold{Official website}: \url{http://www.mutsignatures.org}
+#'   \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
 #'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
 #'   \item WTSI framework: \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3588146/}
 #'  }
@@ -695,8 +700,9 @@ getTestRunArgs <- function (testN = "evaluateStability")
 #' @references 
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
-#'   \item \bold{Official website}: \url{http://www.mutsignatures.org}
+#'   \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
 #'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
 #'   \item WTSI framework: \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3588146/}
 #'  }
@@ -747,8 +753,9 @@ leadZeros <- function (n, m, char = "0", na.value = NA)
 #' @references 
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
-#'   \item \bold{Official website}: \url{http://www.mutsignatures.org}
+#'   \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
 #'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
 #'   \item WTSI framework: \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3588146/}
 #'  }
@@ -802,8 +809,9 @@ removeWeak <- function (input_mutCounts,
 #' @references 
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
-#'   \item \bold{Official website}: \url{http://www.mutsignatures.org}
+#'   \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
 #'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
 #'   \item \bold{Silhouette analysis in R}: \url{http://www.biotechworld.it/bioinf/2017/01/20/translating-matlabs-silhouette-function-to-r/}
 #'  }
@@ -874,8 +882,9 @@ silhouetteMLB <- function (data,
 #' @references 
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
-#'   \item \bold{Official website}: \url{http://www.mutsignatures.org}
+#'   \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
 #'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
 #'   \item WTSI framework: \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3588146/}
 #'  }
@@ -1054,10 +1063,11 @@ alexaNMF <- function(v, r, params)
 #' @references 
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
-#'   \item \bold{Official website}: \url{http://www.mutsignatures.org}
+#'   \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
 #'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
-#'   \item \bold{Chih-Jen Lin original paper}: \url{http://ieeexplore.ieee.org/document/4359171/}
+#'   \item \bold{Chih-Jen Lin original paper}: \url{https://ieeexplore.ieee.org/document/4359171/}
 #'  }
 #' 
 #'  
@@ -1212,8 +1222,9 @@ chihJenNMF <- function(v, r, params) {
 #' @references 
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
-#'   \item \bold{Official website}: \url{http://www.mutsignatures.org}
+#'   \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
 #'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
 #'   \item WTSI framework: \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3588146/}
 #'  }
@@ -1350,8 +1361,9 @@ decipherMutationalProcesses <- function (input,
 #' @references 
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
-#'   \item \bold{Official website}: \url{http://www.mutsignatures.org}
+#'   \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
 #'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
 #'   \item WTSI framework: \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3588146/}
 #'  }
@@ -1542,7 +1554,8 @@ deconvoluteMutCounts <- function(input_mutCounts, params)
                        }), finally = (function(f) {
                          parallel::stopCluster(cl)
                        }))
-    message("Done!", appendLF = TRUE)
+    message("Parallel Processing Complete...", appendLF = TRUE)
+    message("Starting downstream processing. Please, wait...", appendLF = TRUE)
   }
   W.all <- do.call(cbind, lapply(muCounts.checkDF, (function(tmp) {
     tmp$Wk
@@ -1584,6 +1597,10 @@ deconvoluteMutCounts <- function(input_mutCounts, params)
   deconvoluted.results$processStabAvg <- stability.check$processStabAvg
   deconvoluted.results$clusterCompactness <- stability.check$clusterCompactness
   deconvoluted.results$includedSampleId <- includedSampleId
+  
+  if (debugStatus) {
+    message("Done...", appendLF = TRUE)
+  }
   return(deconvoluted.results)
 }
 
@@ -1612,8 +1629,9 @@ deconvoluteMutCounts <- function(input_mutCounts, params)
 #' @references 
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
-#'   \item \bold{Official website}: \url{http://www.mutsignatures.org}
+#'   \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
 #'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
 #'   \item WTSI framework: \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3588146/}
 #'  }
@@ -1735,8 +1753,9 @@ extractSignatures <- function (mutCountMatrix,
 #' @references 
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
-#'   \item \bold{Official website}: \url{http://www.mutsignatures.org}
+#'   \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
 #'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
 #'   \item WTSI framework: \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3588146/}
 #'  }
@@ -2017,8 +2036,9 @@ custom_cssls <- function (CtC, CtA, Pset)
 #' @references 
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
-#'   \item \bold{Official website}: \url{http://www.mutsignatures.org}
+#'   \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
 #'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
 #'  }
 #' 
@@ -2049,9 +2069,9 @@ attachContext <- function(mutData,
   if (!"BSgenome" %in% class(BSGenomeDb)) {
     stop("BSGenomeDb is not a BSgenome-class object")
   }
-  
+
   if (exec) {
-    #utils::data(mutSigData)
+    
     attachContext.addON <- mutSignatures::mutSigData$.addON$attachContext.addON
     
     YY <- tryCatch({
@@ -2114,8 +2134,9 @@ attachContext <- function(mutData,
 #' @references 
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
-#'   \item \bold{Official website}: \url{http://www.mutsignatures.org}
+#'   \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
 #'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
 #'  }
 #' 
@@ -2284,8 +2305,9 @@ attachMutType <- function(mutData,
 #' @references 
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
-#'   \item \bold{Official website}: \url{http://www.mutsignatures.org}
+#'   \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
 #'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
 #'  }
 #'
@@ -2331,8 +2353,9 @@ extractXvarlinkData <- function(xvarLink_data) {
 #' @references 
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
-#'   \item \bold{Official website}: \url{http://www.mutsignatures.org}
+#'   \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
 #'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
 #'  }
 #'  
@@ -2384,7 +2407,9 @@ filterSNV <- function(dataSet,
 #' @references 
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
+#'   \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
 #'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
 #'  }
 #' 
@@ -2407,7 +2432,7 @@ frequencize <- function(countMatrix,
 
 #' Obtain COSMIC mutational Signatures.
 #' 
-#' Obtain latest mutational Signature definitions from COSMIC. FOr more info, please visit: \url{http://cancer.sanger.ac.uk/}
+#' Obtain latest mutational Signature definitions from COSMIC. FOr more info, please visit: \url{https://cancer.sanger.ac.uk/cosmic/}
 #' 
 #' @param forceUseMirror logical, shall signatures be downloaded from a mirror. Set to TRUE if the COSMIC
 #' server goes down.
@@ -2422,8 +2447,9 @@ frequencize <- function(countMatrix,
 #' @references 
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
-#'   \item \bold{Official website}: \url{http://www.mutsignatures.org}
+#'   \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
 #'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
 #'  }
 #' 
@@ -2473,6 +2499,7 @@ getCosmicSignatures <- function(forceUseMirror = FALSE, asMutSign = TRUE)
   } else {
     if (sum(mutType.labels %in% rownames(my_fullW)) == length(mutType.labels)) {
       obj2rt <- my_fullW[mutType.labels,]
+      colnames(obj2rt) <- sub("Signature", "COSMIC", colnames(obj2rt))
       if(asMutSign)
         obj2rt <- mutSignatures::as.mutation.signatures(obj2rt)
       
@@ -2504,8 +2531,9 @@ getCosmicSignatures <- function(forceUseMirror = FALSE, asMutSign = TRUE)
 #' @references 
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
-#'   \item \bold{Official website}: \url{http://www.mutsignatures.org}
+#'   \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
 #'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
 #'  }
 #'
@@ -2570,7 +2598,7 @@ importVCFfiles <- function(vcfFiles, sampleNames = NULL){
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
-#'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
 #'  }
 #'  
 #' @importFrom ggplot2 ggplot aes geom_bar theme theme_minimal element_blank element_line unit element_text scale_y_continuous   
@@ -2655,8 +2683,9 @@ plotSignExposures <- function(mutCount, top = 50) {
 #' @references 
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
-#'   \item \bold{Official website}: \url{http://www.mutsignatures.org}
+#'   \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
 #'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
 #'  }
 #' 
@@ -2672,6 +2701,11 @@ plotMutTypeProfile <- function(mutCounts,
                                cols = c("#4eb3d3", "#040404", "#b30000", "#bdbdbd", "#41ab5d", "#dd3497"),
                                main = "MutType Profile")
 {
+  
+  # As of 2020-11-01, this is not working, no solution
+  # switch to default family
+  font.family <- "mono"
+  font.family <- ""
   
   mutLabs <- toupper(mutLabs)
   if (!sum(regexpr("^(A|C|G|T)(\\[)(A|C|G|T)(>)(A|C|G|T)(\\])(A|C|G|T)$", toupper(mutLabs)) > 0) == length(mutLabs)) {
@@ -2748,7 +2782,7 @@ plotMutTypeProfile <- function(mutCounts,
   graphics::box()
   graphics::axis(side = 1, tick = FALSE, 
                  hadj = 1, cex.axis = xaxis_cex, 
-                 pos = (max(ylim) * 0.035), family = "mono",
+                 pos = (max(ylim) * 0.035), family = font.family,
                  at = xpos,
                  labels = third.shortLab,
                  las = 2)
@@ -2795,8 +2829,9 @@ plotMutTypeProfile <- function(mutCounts,
 #' @references 
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
-#'   \item \bold{Official website}: \url{http://www.mutsignatures.org}
+#'   \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
 #'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
 #'  }
 #' 
@@ -2917,8 +2952,9 @@ prelimProcessAssess <- function(input,
 #' @references 
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
-#'   \item \bold{Official website}: \url{http://www.mutsignatures.org}
+#'   \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
 #'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
 #'  }
 #'    
@@ -3093,8 +3129,9 @@ matchSignatures <- function(mutSign,
 #' @references 
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
-#'   \item \bold{Official website}: \url{http://www.mutsignatures.org}
+#'   \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
 #'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
 #'  }
 #'      
@@ -3206,8 +3243,9 @@ processVCFdata <- function(vcfData,
 #' @references 
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
-#'   \item \bold{Official website}: \url{http://www.mutsignatures.org}
+#'   \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
 #'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
 #'  }
 #' 
@@ -3272,8 +3310,9 @@ removeMismatchMut <- function(mutData,
 #' @references 
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
-#'   \item \bold{Official website}: \url{http://www.mutsignatures.org}
+#'   \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
 #'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
 #'  }
 #' 
@@ -3303,7 +3342,17 @@ resolveMutSignatures <- function(mutCountData,
                 "have to match those in the signature",
                 "Matrix... check rownames()"))
   }
-  mutCountData <- mutCountData[rownames(signFreqData),]
+  mutCountData0 <- mutCountData[rownames(signFreqData),]
+  
+  # Fix 1 sample only
+  if (!is.data.frame(resolveMutSignatures)) {
+    TMP <- data.frame(mutCountData0)
+    rownames(TMP) <- rownames(signFreqData)
+    colnames(TMP) <- colnames(mutCountData)
+    mutCountData <- TMP
+  } else {
+    mutCountData <- mutCountData0
+  }
   
   if (byFreq) {
     full.Y <- apply(mutCountData, 2, (function(clmn){
@@ -3373,8 +3422,9 @@ resolveMutSignatures <- function(mutCountData,
 #' @references 
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
-#'   \item \bold{Official website}: \url{http://www.mutsignatures.org}
+#'   \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
 #'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
 #'  }
 #' 
@@ -3440,6 +3490,7 @@ revCompl <- function (DNAseq,
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
 #'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
 #'  }
 #' 
@@ -3498,8 +3549,9 @@ table2df <- function(dataMatrix,
 #' @references 
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
-#'   \item \bold{Official website}: \url{http://www.mutsignatures.org}
+#'   \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
 #'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
 #'  }
 #' 
@@ -3616,8 +3668,9 @@ countMutTypes <- function (mutTable, mutType_colName = "mutType", sample_colName
 #' @references 
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
-#'   \item \bold{Official website}: \url{http://www.mutsignatures.org}
+#'   \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
 #'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
 #'  }
 #' 
@@ -3687,8 +3740,9 @@ sortByMutations <- function(x) {
 #' @references 
 #' More information and examples about mutational signature analysis can be found here:
 #' \enumerate{
-#'   \item \bold{Official website}: \url{http://www.mutsignatures.org}
+#'   \item \bold{GitHub Repo}: \url{https://github.com/dami82/mutSignatures/}
 #'   \item \bold{More info and examples} about the mutSignatures R library: \url{https://www.data-pulse.com/dev_site/mutsignatures/}
+#'   \item \bold{Sci Rep paper}, introducing mutS: \url{https://www.nature.com/articles/s41598-020-75062-0/}
 #'   \item \bold{Oncogene paper}, Mutational Signatures Operative in Bladder Cancer: \url{https://www.nature.com/articles/s41388-017-0099-6}
 #'  }
 #' 
